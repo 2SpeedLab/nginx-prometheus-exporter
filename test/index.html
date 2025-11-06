@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>NGINX Prometheus Exporter Test</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			max-width: 800px;
+			margin: 50px auto;
+			padding: 20px;
+			background-color: #f5f5f5;
+		}
+		.container {
+			background: white;
+			padding: 30px;
+			border-radius: 8px;
+			box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+		}
+		h1 {
+			color: #333;
+		}
+		.links {
+			margin: 20px 0;
+		}
+		.links a {
+			display: block;
+			margin: 10px 0;
+			padding: 10px;
+			background: #007bff;
+			color: white;
+			text-decoration: none;
+			border-radius: 4px;
+			text-align: center;
+		}
+		.links a:hover {
+			background: #0056b3;
+		}
+		.info {
+			background: #e7f3ff;
+			padding: 15px;
+			border-left: 4px solid #007bff;
+			margin: 20px 0;
+		}
+	</style>
+</head>
+<body>
+<div class="container">
+	<h1>🚀 NGINX Prometheus Exporter Test</h1>
+
+	<div class="info">
+		<strong>Status:</strong> NGINX is running and serving this page!
+	</div>
+
+	<h2>📊 Monitoring Links</h2>
+	<div class="links">
+		<a href="http://localhost:8080/stub_status" target="_blank">
+			NGINX Stub Status (Raw Metrics)
+		</a>
+		<a href="http://localhost:9113/metrics" target="_blank">
+			NGINX Exporter Metrics (Prometheus Format)
+		</a>
+		<a href="http://localhost:9090" target="_blank">
+			Prometheus Dashboard
+		</a>
+		<a href="http://localhost:9090/targets" target="_blank">
+			Prometheus Targets
+		</a>
+		<a href="http://localhost:3000" target="_blank">
+			Grafana Dashboard (admin/admin)
+		</a>
+	</div>
+
+	<h2>📝 Quick Commands</h2>
+	<div class="info">
+		<p><strong>Generate traffic:</strong></p>
+		<code>while true; do curl -s http://localhost:8080 > /dev/null; sleep 1; done</code>
+
+		<p style="margin-top: 15px;"><strong>Check metrics:</strong></p>
+		<code>curl http://localhost:9113/metrics | grep nginx_</code>
+	</div>
+
+	<h2>📈 Example Prometheus Queries</h2>
+	<div class="info">
+		<ul>
+			<li><code>nginx_connections_active</code> - Active connections</li>
+			<li><code>rate(nginx_http_requests_total[1m])</code> - Request rate per minute</li>
+			<li><code>nginx_connections_reading</code> - Connections reading requests</li>
+			<li><code>nginx_connections_writing</code> - Connections writing responses</li>
+			<li><code>nginx_connections_waiting</code> - Idle connections</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>
